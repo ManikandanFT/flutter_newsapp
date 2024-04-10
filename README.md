@@ -1,16 +1,18 @@
 # newsapp
 
-A new Flutter project.
+News App is a simple news app built with Flutter that displays top news from newsapi.org. The app includes a home page that displays top news, and a category page where users can choose from a range of news categories. The app also features a smooth and intuitive design with gestures and a seamless experience on both Android and iOS platforms.
 
-## Getting Started
+## Technical Specifications:
 
-This project is a starting point for a Flutter application.
 
-A few resources to get you started if this is your first Flutter project:
+Programming Language: Dart
+Mobile Platform: Cross-platform (Android or iOS)
+Development Framework: Flutter
+Specific Functionalities:
+News API integration for fetching headlines and articles.
+Category selection and filtering for news feed.
+Article detail view with full content and image display.
+Offline storage for saved articles.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## images
