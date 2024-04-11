@@ -16,16 +16,7 @@ Offline storage for saved articles.
 
 
 ## images
-Column(
-crossAxisAlignment: CrossAxisAlignment.start,
-children: [
-Image.network(
-'https://raw.githubusercontent.com/ManikandanFT/flutter_newsapp/main/assets/165630570/28cb8402-587a-4999-ac64-1ba4bc888cbb',
-),
-Image.network(
-'https://raw.githubusercontent.com/ManikandanFT/flutter_newsapp/main/assets/165630570/e5aaff73-3136-45fc-8a2e-3f456da0f63b',
-),
-],
-)
+![WhatsApp Image 2024-04-11 at 2 17 09 PM (1)](https://raw.githubusercontent.com/ManikandanFT/flutter_newsapp/main/assets/165630570/28cb8402-587a-4999-ac64-1ba4bc888cbb)
+![WhatsApp Image 2024-04-11 at 2 17 09 PM](https://raw.githubusercontent.com/ManikandanFT/flutter_newsapp/main/assets/165630570/e5aaff73-3136-45fc-8a2e-3f456da0f63b)
 
 
