@@ -9,11 +9,6 @@ class NewsController extends GetxController {
   var articles = List<NewsArticle>.empty().obs;
   var selectedCategory = 'hotnews'.obs;
   var currentPage = 0.obs;
-  RxBool isBookmarked = false.obs;
-
-  void toggleBookmark() {
-    isBookmarked.value = !isBookmarked.value;
-  }
 
   List<String> categories = [
     'Hotnews',
