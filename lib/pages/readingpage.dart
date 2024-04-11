@@ -82,6 +82,13 @@ class ArticleDetailsPage extends StatelessWidget {
                     width: double.infinity,
                     height: 250,
                     fit: BoxFit.cover,
+                    errorBuilder: (context, error, stackTrace) {
+                      return SizedBox(
+                        height: 250,
+                        width: double.infinity,
+                        child: Icon(Icons.error),
+                      );
+                    },
                   ),
                 ),
                 Positioned(
@@ -160,74 +167,92 @@ class ArticleDetailsPage extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 10,),
-                  Text(
-                    content,
-                    style: GoogleFonts.roboto(
-                      fontWeight: FontWeight.w500,
-                      color: bgDarkcolor,
-                      fontSize: 16,
+                     Text(
+                      "${content}",
+                      maxLines: 120,
+                      overflow: TextOverflow.ellipsis,
+                      style: GoogleFonts.roboto(
+                        fontWeight: FontWeight.w500,
+                        color: bgDarkcolor,
+                        fontSize: 16,
+                      ),
                     ),
-                  ),
+
                   SizedBox(height: 35,),
-                  Container(
-                    height: 60,
-                    width: MediaQuery.of(context).size.width,
-                    margin: EdgeInsets.symmetric(horizontal: 10),
-                    alignment: Alignment.bottomCenter,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(30),
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 5,
-                          blurRadius: 7,
-                          offset: Offset(0, 3),
+
+                  Stack(
+                    children: [
+
+                      Container(
+                        height: 60,
+                        width: MediaQuery.of(context).size.width,
+                        margin: EdgeInsets.symmetric(horizontal: 10),
+                        alignment: Alignment.bottomCenter,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(30),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(30),
-                      child: BackdropFilter(
-                        filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                        child: Container(
-                          padding: EdgeInsets.symmetric(horizontal: 10),
-                          color: Colors.white.withOpacity(0.3),
-                          child: Center(
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                              children: [
-                                for (int i = 0; i < image.length; i++)
-                                  Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(16),
-                                      color: Colors.grey.withOpacity(0.1),
-                                    ),
-                                    child: Padding(
-                                      padding: const EdgeInsets.all(8.0),
-                                      child: Row(
-                                        children: [
-                                          Container(
-                                            height: 30,
-                                            width: 30,
-                                            decoration: BoxDecoration(
-                                              borderRadius: BorderRadius.circular(20),
-                                            ),
-                                            child: Image.asset(
-                                              image[i],
-                                            ),
+                        child:
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(30),
+                          child: BackdropFilter(
+                            filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
+                            child: Container(
+                              padding: EdgeInsets.symmetric(horizontal: 10),
+                              // Change the color to white with opacity
+                              color: Colors.white.withOpacity(0.5), // Adjust the opacity as needed
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    for (int i = 0; i < image.length; i++)
+                                      Container(
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(16),
+                                          color: Colors.grey.withOpacity(0.1),
+                                        ),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: Row(
+                                            children: [
+                                              Container(
+                                                height: 30,
+                                                width: 30,
+                                                decoration: BoxDecoration(
+                                                  borderRadius: BorderRadius.circular(20),
+                                                ),
+                                                child: Image.asset(
+                                                  image[i],
+                                                ),
+                                              ),
+                                              Text(imagevale[i]),
+                                            ],
                                           ),
-                                          Text(imagevale[i]),
-                                        ],
+                                        ),
                                       ),
-                                    ),
-                                  ),
-                              ],
+                                  ],
+                                ),
+                              ),
                             ),
                           ),
                         ),
+
+
+
+
+
+
                       ),
-                    ),
+                    ],
+
                   ),
                 ],
               ),

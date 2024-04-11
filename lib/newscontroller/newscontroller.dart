@@ -33,7 +33,7 @@ class NewsController extends GetxController {
     isLoading(true);
     try {
       final newsUrl = 'https://newsapi.org/v2/everything?q=${selectedCategory.value}&apiKey=ce3d7ed905eb4d5c8678356eb233228e';
-      //final newsUrl = 'https://newsapi.org/v2/top-headlines?country=de&category=${selectedCategory.value}&apiKey=b080065e8d304a75afb4270943232c8f';
+     // final newsUrl = 'https://newsapi.org/v2/top-headlines?country=de&category=${selectedCategory.value}&apiKey=b080065e8d304a75afb4270943232c8f';
       final response = await http.get(Uri.parse(newsUrl));
       if (response.statusCode == 200) {
         final List<dynamic> rawData = json.decode(response.body)['articles'];
