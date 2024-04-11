@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:newsapp/colors/colors.dart';
 import 'package:newsapp/pages/readingpage.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:get/get.dart';
 import '../newscontroller/newscontroller.dart';
 
@@ -29,7 +28,7 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
             Expanded(
               child: Obx(
                     () => newsController.isLoading.value
-                    ? Center(child: CircularProgressIndicator())
+                    ? const Center(child: CircularProgressIndicator())
                     : Column(
                   children: [
                     GestureDetector(
@@ -39,10 +38,10 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
                           imageUrl: article.urlToImage,
                           content: article.content ??'',
                           description: article.description ,
-                          time: article.publishedAt ,
+                          time: article.publishedAt,
                           Catagory: newsController.selectedCategory.value,
                           author: article.author,
-                          title: article.title ?? '',
+                          title: article.title ,
                         ));
                       },
                       child: CarouselSlider(
@@ -52,9 +51,9 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
                           aspectRatio: 2.0,
                           enlargeCenterPage: true,
                           enableInfiniteScroll: true,
-                          autoPlayInterval: Duration(seconds: 3),
+                          autoPlayInterval: const Duration(seconds: 3),
                           viewportFraction: 0.9,
-                          autoPlayAnimationDuration: Duration(milliseconds: 800),
+                          autoPlayAnimationDuration: const Duration(milliseconds: 800),
                           scrollDirection: Axis.horizontal,
                           onPageChanged: (ind, parse) {
                             newsController.updateCurrentPage(ind);
@@ -81,7 +80,7 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
                                           return SizedBox(
                                             height: screenHeight * 0.1,
                                             width: screenWidth * 0.2,
-                                            child: Icon(Icons.error),
+                                            child: const Icon(Icons.error),
                                           );
                                         },
                                       ),
@@ -134,7 +133,7 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
                                         ),
                                         SizedBox(width: screenWidth * 0.02),
                                         Text(
-                                          article.author ?? 'Unknown Author',
+                                          article.author,
                                           style: const TextStyle(color: Whitecolor),
                                           maxLines: 3,
                                         ),
@@ -148,12 +147,12 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
                         }).toList(),
                       ),
                     ),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     BuildCarouselIndicator(),
-                    SizedBox(height: 10),
+                    const SizedBox(height: 10),
                     Padding(
                       padding: EdgeInsets.all(screenHeight * 0.015),
-                      child: Container(
+                      child: SizedBox(
                         height: screenHeight * 0.05,
                         child: Obx(() => ListView(
                           scrollDirection: Axis.horizontal,
@@ -173,7 +172,7 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
                         )),
                       ),
                     ),
-                    SizedBox(height: screenHeight * 0.01),
+                    SizedBox(height: screenHeight * 0.01,),
 
                     Expanded(
                       child: ListView.builder(
@@ -191,90 +190,93 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
                                 Get.to(ArticleDetailsPage(
                                   imageUrl: article.urlToImage,
                                   content: article.content ?? '',
-                                  description: article.description ?? '',
-                                  time: article.publishedAt ?? '',
+                                  description: article.description,
+                                  time: article.publishedAt,
                                   Catagory: newsController.selectedCategory.value,
                                   author: article.author,
-                                  title: article.title ?? '',
+                                  title: article.title,
                                 ));
                               },
-                              child: Row(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  ClipRRect(
-                                    borderRadius: BorderRadius.circular(16),
-                                    child: Image.network(
-                                      article.urlToImage,
-                                      height: screenHeight * 0.1,
-                                      width: screenWidth * 0.2,
-                                      fit: BoxFit.cover,
-                                      errorBuilder: (context, error, stackTrace) {
-                                        return SizedBox(
-                                          height: screenHeight * 0.1,
-                                          width: screenWidth * 0.2,
-                                          child: Icon(Icons.error),
-                                        );
-                                      },
+                              child: Padding(
+                                padding: const EdgeInsets.only(left: 10),
+                                child: Row(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    ClipRRect(
+                                      borderRadius: BorderRadius.circular(16),
+                                      child: Image.network(
+                                        article.urlToImage,
+                                        height: screenHeight * 0.12,
+                                        width: screenWidth * 0.25,
+                                        fit: BoxFit.cover,
+                                        errorBuilder: (context, error, stackTrace) {
+                                          return SizedBox(
+                                            height: screenHeight * 0.1,
+                                            width: screenWidth * 0.2,
+                                            child: const Icon(Icons.error),
+                                          );
+                                        },
+                                      ),
                                     ),
-                                  ),
-                                  SizedBox(width: screenWidth * 0.01),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Row(
-                                          children: [
-                                            CircleAvatar(
-                                              radius: screenHeight * 0.01,
-                                              child: Image.network('https://i.pinimg.com/736x/ba/d7/86/bad786dfe4f227555be6fa2484b0b9a3.jpg'),
-                                            ),
-                                            SizedBox(width: screenWidth * 0.01),
-                                            Text(
-                                              article.author ?? 'Unknown Author',
-                                              style: TextStyle(
-                                                fontSize: screenHeight * 0.012,
-                                                overflow: TextOverflow.ellipsis,
-                                                color: Colors.black,
-                                                letterSpacing: -0.2,
+                                    SizedBox(width: screenWidth * 0.01),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
+                                        children: [
+                                          Row(
+                                            children: [
+                                              CircleAvatar(
+                                                radius: screenHeight * 0.01,
+                                                child: Image.network('https://i.pinimg.com/736x/ba/d7/86/bad786dfe4f227555be6fa2484b0b9a3.jpg'),
                                               ),
-                                            ),
-                                          ],
-                                        ),
-                                        SizedBox(height: screenHeight * 0.004),
-                                        Text(
-                                          article.description ?? '',
-                                          maxLines: 2,
-                                          style: TextStyle(
-                                            fontSize: screenHeight * 0.016,
-                                            color: Colors.black,
-                                            letterSpacing: -0.2,
-                                            fontWeight: FontWeight.bold,
+                                              SizedBox(width: screenWidth * 0.01),
+                                              Text(
+                                                article.author,
+                                                style: TextStyle(
+                                                  fontSize: screenHeight * 0.012,
+                                                  overflow: TextOverflow.ellipsis,
+                                                  color: Colors.black,
+                                                  letterSpacing: -0.2,
+                                                ),
+                                              ),
+                                            ],
                                           ),
-                                        ),
-                                        SizedBox(height: screenHeight * 0.004),
-                                        Row(
-                                          children: [
-                                            Text(
-                                              "$formattedTime  •" ?? '',
-                                              style: TextStyle(color: Colors.grey),
-                                              maxLines: 3,
+                                          SizedBox(height: screenHeight * 0.004),
+                                          Text(
+                                            article.description,
+                                            maxLines: 2,
+                                            style: TextStyle(
+                                              fontSize: screenHeight * 0.016,
+                                              color: Colors.black,
+                                              letterSpacing: -0.2,
+                                              fontWeight: FontWeight.bold,
                                             ),
-                                            SizedBox(width: screenWidth * 0.008),
-                                            Text(
-                                              "${newsController.selectedCategory.value}" ?? '',
-                                              style: TextStyle(color: Colors.grey),
-                                              maxLines: 3,
-                                            ),
-                                          ],
-                                        ),
-                                      ],
+                                          ),
+                                          SizedBox(height: screenHeight * 0.004),
+                                          Row(
+                                            children: [
+                                              Text(
+                                                "$formattedTime  •",
+                                                style: const TextStyle(color: Colors.grey),
+                                                maxLines: 3,
+                                              ),
+                                              SizedBox(width: screenWidth * 0.008),
+                                              Text(
+                                                "${newsController.selectedCategory.value}",
+                                                style: const TextStyle(color: Colors.grey),
+                                                maxLines: 3,
+                                              ),
+                                            ],
+                                          ),
+                                        ],
+                                      ),
                                     ),
-                                  ),
-                                  IconButton(
-                                    icon: Icon(Icons.bookmark_border_outlined),
-                                    onPressed: () {},
-                                  ),
-                                ],
+                                    IconButton(
+                                      icon: const Icon(Icons.bookmark_border_outlined),
+                                      onPressed: () {},
+                                    ),
+                                  ],
+                                ),
                               ),
                             ),
                           );
@@ -294,21 +296,19 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
 
   Widget BuildCarouselIndicator() {
     final newsController = Get.find<NewsController>();
-    return Container(
-      child: Padding(
-        padding: const EdgeInsets.only(left: 15.0),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: List.generate(
-            5,
-                (index) => Container(
-              margin: EdgeInsets.symmetric(horizontal: 3),
-              width: 20,
-              height: 3,
-              decoration: BoxDecoration(
-                color: newsController.currentPage.value == index ? greencolor : Colors.grey,
-                borderRadius: BorderRadius.circular(3),
-              ),
+    return Padding(
+      padding: const EdgeInsets.only(left: 15.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: List.generate(
+          5,
+              (index) => Container(
+            margin: const EdgeInsets.symmetric(horizontal: 3),
+            width: 20,
+            height: 3,
+            decoration: BoxDecoration(
+              color: newsController.currentPage.value == index ? greencolor : Colors.grey,
+              borderRadius: BorderRadius.circular(3),
             ),
           ),
         ),
@@ -319,7 +319,7 @@ class _HomebodyscreenState extends State<Homebodyscreen> {
   Widget _buildCategoryButton(String category) {
     final isSelected = category.toLowerCase() == Get.find<NewsController>().selectedCategory.value.toLowerCase();
     return Container(
-      constraints: BoxConstraints(minWidth: 100, minHeight: 75),
+      constraints: const BoxConstraints(minWidth: 100, minHeight: 75),
       decoration: BoxDecoration(
         color: isSelected ? greencolor : Colors.grey.withOpacity(0.2),
         borderRadius: BorderRadius.circular(24.0),
