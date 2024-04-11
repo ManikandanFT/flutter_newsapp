@@ -16,4 +16,6 @@ Offline storage for saved articles.
 
 
 ## images
-![WhatsApp Image 2024-04-11 at 2 17 09 PM (1)](https://github.com/ManikandanFT/flutter_newsapp/assets/165630570/28cb8402-587a-4999-ac64-1ba4bc888cbb) ![WhatsApp Image 2024-04-11 at 2 17 09 PM](https://github.com/ManikandanFT/flutter_newsapp/assets/165630570/e5aaff73-3136-45fc-8a2e-3f456da0f63b)
+<img src="https://raw.githubusercontent.com/ManikandanFT/flutter_newsapp/main/assets/165630570/28cb8402-587a-4999-ac64-1ba4bc888cbb" alt="WhatsApp Image 2024-04-11 at 2 17 09 PM (1)" style="display:inline-block; margin-right: 20px;">
+<img src="https://raw.githubusercontent.com/ManikandanFT/flutter_newsapp/main/assets/165630570/e5aaff73-3136-45fc-8a2e-3f456da0f63b" alt="WhatsApp Image 2024-04-11 at 2 17 09 PM" style="display:inline-block;">
+
