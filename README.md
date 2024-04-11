@@ -4,7 +4,7 @@ News App is a simple news app built with Flutter that displays top news from new
 
 ## Technical Specifications:
 
-Programming Language: Dart\n
+Programming Language: Dart
 State management:Getx
 Mobile Platform: Cross-platform (Android or ios)
 Development Framework: Flutter
