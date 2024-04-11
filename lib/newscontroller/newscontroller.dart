@@ -32,7 +32,7 @@ class NewsController extends GetxController {
   Future<void> fetchNews() async {
     isLoading(true);
     try {
-      final newsUrl = 'https://newsapi.org/v2/everything?q=${selectedCategory.value}&apiKey=ce3d7ed905eb4d5c8678356eb233228e';
+      final newsUrl = 'https://newsapi.org/v2/everything?q=${selectedCategory.value}&apiKey=e4adf6fccbf54d538811ab713c4fe8fb';
      // final newsUrl = 'https://newsapi.org/v2/top-headlines?country=de&category=${selectedCategory.value}&apiKey=b080065e8d304a75afb4270943232c8f';
       final response = await http.get(Uri.parse(newsUrl));
       if (response.statusCode == 200) {
